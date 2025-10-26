@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
+                        $table->integer('quantity');
+            $table->decimal('price', 8, 2)->default(0.00);
+
             $table->timestamps();
 
             $table->foreign('user_id')->references('userId')->on('users')->onDelete('cascade');

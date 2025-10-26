@@ -16,7 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('userId')->on('users')->onUpdate('cascade')->onDelete('cascade');            
             $table->unsignedBigInteger('shipping_id');
-            $table->foreign('shipping_id')->references('shippingId')->on('shipping_addresses')->onUpdate('cascade')->onDelete('cascade');            
+$table->foreign('shipping_id')
+      ->references('id')
+      ->on('shipping_addresses')
+      ->onDelete('cascade')
+      ->onUpdate('cascade');
             $table->string('payment_type')->nullable();
             $table->double('total_price');
             $table->integer('order_status')->default(0);
